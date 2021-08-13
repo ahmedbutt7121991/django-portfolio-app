@@ -26,7 +26,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-DEVELOPMENT_MODE = False
+#DEVELOPMENT_MODE = False
 
 ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost,159.203.76.97").split(",")
 
@@ -86,12 +86,12 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 ##           "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
 ##        }
 ##    }
-if len(sys.argv) > 0 and sys.argv[1] != 'collectstatic --noinput':
-    if os.getenv("DATABASE_URL", None) is None:
-        raise Exception("DATABASE_URL environment variable not defined")
-    DATABASES = {
-        "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
-    }
+#if len(sys.argv) > 0 and sys.argv[1] != 'collectstatic --noinput':
+#    if os.getenv("DATABASE_URL", None) is None:
+#        raise Exception("DATABASE_URL environment variable not defined")
+DATABASES = {
+    "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
+}
 
 
 # Password validation
