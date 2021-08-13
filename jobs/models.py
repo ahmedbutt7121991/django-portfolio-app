@@ -8,6 +8,8 @@ class Job(models.Model):
     summary = models.CharField(max_length=500)
     # Project Type
     project = models.CharField(max_length=200)
+    # year Type
+    Year = models.IntegerField(default=0)
 
     def __str__(self):
         return self.summary
