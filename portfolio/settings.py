@@ -79,14 +79,14 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-if DEVELOPMENT_MODE == 'True':
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-        }
-    }
-elif len(sys.argv) > 0 and sys.argv[1] != 'collectstatic':
+##if DEVELOPMENT_MODE == 'True':
+##    DATABASES = {
+##        "default": {
+##            "ENGINE": "django.db.backends.sqlite3",
+##           "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+##        }
+##    }
+if len(sys.argv) > 0 and sys.argv[1] != 'collectstatic --noinput':
     if os.getenv("DATABASE_URL", None) is None:
         raise Exception("DATABASE_URL environment variable not defined")
     DATABASES = {
@@ -147,7 +147,7 @@ USE_TZ = True
 AWS_ACCESS_KEY_ID = os.environ.get("SPACES_ACCESS_KEY")
 AWS_SECRET_ACCESS_KEY = os.environ.get("SPACES_SECRET_KEY")
 AWS_STORAGE_BUCKET_NAME = os.environ.get("BUCKET_NAME")
-AWS_S3_ENDPOINT_URL = 'https://nyc3.digitaloceanspaces.com'
+AWS_S3_ENDPOINT_URL = 'https://sfo3.digitaloceanspaces.com'
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
