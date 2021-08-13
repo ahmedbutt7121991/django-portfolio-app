@@ -7,12 +7,9 @@ class Job(models.Model):
     # SUMMARY
     summary = models.CharField(max_length=500)
     # Project Type
-    project = models.CharField(max_length=200)
+    #project = models.CharField(max_length=200)
     # year Type
-    Year = models.IntegerField(default=0)
+    #Year = models.IntegerField(default=0)
 
     def __str__(self):
         return self.summary
-
-    def __str__(self):
-        return self.project
